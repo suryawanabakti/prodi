@@ -17,7 +17,6 @@ return new class extends Migration
 
             $table->string('kode');
             $table->string('nama_matakuliah');
-            $table->string('');
             $table->timestamps();
         });
     }

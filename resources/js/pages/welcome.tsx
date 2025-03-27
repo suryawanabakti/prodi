@@ -1,12 +1,13 @@
 'use client';
 
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import GuestLayout from '@/layouts/guest-layout';
 import { Head, Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronDown, ChevronRight, Newspaper, Users } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, Newspaper, Phone, Users } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 // Global CSS that would normally go in your globals.css
@@ -64,6 +65,8 @@ interface Dosen {
     id: number;
     nama: string;
     bidang_keilmuwan: string;
+    nidn: string;
+    nohp: string;
     foto: string | null;
 }
 
@@ -280,7 +283,7 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
                                 <Card className={`${styles.hoverLift} h-full overflow-hidden`}>
                                     <div className="aspect-[4/3] w-full bg-blue-50">
                                         {dosen.foto ? (
-                                            <img src={dosen.foto || '/placeholder.svg'} alt={dosen.nama} className="h-full w-full object-cover" />
+                                            <img src={`/storage/${dosen.foto}`} alt={dosen.nama} className="h-full w-full object-cover" />
                                         ) : (
                                             <div className="flex h-full w-full items-center justify-center">
                                                 <Users className="h-16 w-16 text-blue-300" />
@@ -288,8 +291,29 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
                                         )}
                                     </div>
                                     <CardContent className="p-6">
-                                        <h3 className="text-xl font-semibold">{dosen.nama}</h3>
-                                        <p className="text-muted-foreground mt-2">{dosen.bidang_keilmuwan}</p>
+                                        <h3 className="group-hover:text-primary mb-2 text-xl font-semibold tracking-tight transition-colors">
+                                            {dosen.nama}
+                                        </h3>
+
+                                        <div className="mb-4 space-y-2">
+                                            <div className="text-muted-foreground flex items-center text-sm">
+                                                <BookOpen className="text-primary/70 mr-2 h-4 w-4" />
+                                                <span className="font-medium">NIDN:</span>
+                                                <span className="ml-2">{dosen.nidn}</span>
+                                            </div>
+
+                                            <div className="text-muted-foreground flex items-center text-sm">
+                                                <Phone className="text-primary/70 mr-2 h-4 w-4" />
+                                                <span className="font-medium">No HP:</span>
+                                                <span className="ml-2">{dosen.nohp}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-4">
+                                            <Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary/80">
+                                                {dosen.bidang_keilmuwan}
+                                            </Badge>
+                                        </div>
                                     </CardContent>
                                 </Card>
                             </motion.div>

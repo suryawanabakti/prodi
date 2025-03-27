@@ -14,6 +14,7 @@ class AdminAlumniController extends Controller
         $alumni->delete();
         return back();
     }
+
     public function index()
     {
         $alumni = Alumni::all();

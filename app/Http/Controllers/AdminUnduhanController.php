@@ -23,14 +23,11 @@ class AdminUnduhanController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'file' => 'required|file|max:10240',
         ]);
-
         $path = $request->file('file')->store('unduhan', 'public');
-
         Unduhan::create([
             'nama' => $validated['nama'],
             'file' => $path,
