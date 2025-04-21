@@ -52,6 +52,7 @@ class AdminMataKuliahController extends Controller
 
     public function store(Request $request)
     {
+
         MataKuliah::create($request->all());
         return redirect('admin/mata-kuliah');
     }

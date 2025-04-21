@@ -1,13 +1,12 @@
 'use client';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import GuestLayout from '@/layouts/guest-layout';
 import { Head, Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronDown, ChevronRight, Newspaper, Phone, Users } from 'lucide-react';
+import { ChevronDown, ChevronRight, Newspaper, Users } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 // Global CSS that would normally go in your globals.css
@@ -268,7 +267,7 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
             </section>
 
             {/* Featured Lecturers */}
-            <section className="bg-white py-16">
+            {/* <section className="bg-white py-16">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className={`${styles.gradientText} mb-8 text-center text-3xl font-bold tracking-tight`}>Dosen Unggulan</h2>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -325,7 +324,7 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
                         </Button>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Latest News */}
             <section className="bg-blue-50/50 py-16">
@@ -376,39 +375,6 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
                 </div>
             </section>
 
-            {/* Featured Courses */}
-            <section className="bg-white py-16">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className={`${styles.gradientText} mb-8 text-center text-3xl font-bold tracking-tight`}>Mata Kuliah Unggulan</h2>
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {mataKuliah.slice(0, 6).map((mk, index) => (
-                            <motion.div
-                                key={mk.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <Card className={`${styles.hoverLift} flex h-full items-start gap-4 p-6`}>
-                                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100">
-                                        <BookOpen className="h-6 w-6 text-blue-600" />
-                                    </div>
-                                    <div>
-                                        <div className="text-muted-foreground text-sm font-medium">{mk.kode}</div>
-                                        <h3 className="mt-1 text-lg font-semibold">{mk.nama_matakuliah}</h3>
-                                    </div>
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </div>
-                    <div className="mt-8 text-center">
-                        <Button variant="outline" asChild className={styles.hoverLift}>
-                            <Link href="/mata-kuliah">Lihat Semua Mata Kuliah</Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-
             {/* CTA Section */}
             <section className="relative overflow-hidden py-20 text-white">
                 <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-800 to-blue-600"></div>
@@ -447,7 +413,9 @@ export default function Landing({ prodi, dosen, berita, mataKuliah }: Props) {
                         viewport={{ once: true }}
                     >
                         <Button size="lg" className={`${styles.hoverLift} bg-white px-8 text-blue-600 shadow-lg hover:bg-white/90`} asChild>
-                            <Link href="/kontak">Daftar Sekarang</Link>
+                            <a href="https://pmb.unitama.ac.id/" target="_blank">
+                                Daftar Sekarang
+                            </a>
                         </Button>
                     </motion.div>
                 </div>

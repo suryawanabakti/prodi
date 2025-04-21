@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->id();
             $table->foreignId('prodi_id')->constrained('prodi')->cascadeOnDelete();
-
             $table->string('kode');
             $table->string('nama_matakuliah');
             $table->timestamps();
