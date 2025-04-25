@@ -206,8 +206,8 @@ export default function MataKuliahIndex({ mataKuliah }: Props) {
                                             <TableRow>
                                                 <TableHead className="bg-primary/5 text-primary w-[100px] font-semibold">Kode</TableHead>
                                                 <TableHead className="bg-primary/5 text-primary font-semibold">Nama Mata Kuliah</TableHead>
-                                                <TableHead className="bg-primary/5 text-primary font-semibold">Nama Dosen</TableHead>
-                                                <TableHead className="bg-primary/5 text-primary font-semibold">No.HP Dosen</TableHead>
+                                                {/* <TableHead className="bg-primary/5 text-primary font-semibold">Nama Dosen</TableHead> */}
+                                                {/* <TableHead className="bg-primary/5 text-primary font-semibold">No.HP Dosen</TableHead> */}
                                                 <TableHead className="bg-primary/5 text-primary font-semibold">RPS</TableHead>
                                                 <TableHead className="bg-primary/5 text-primary font-semibold">Kurikulum</TableHead>
                                             </TableRow>
@@ -218,8 +218,8 @@ export default function MataKuliahIndex({ mataKuliah }: Props) {
                                                     <TableRow key={mk.id} className="hover:bg-muted/50 transition-colors">
                                                         <TableCell className="font-medium">{mk.kode}</TableCell>
                                                         <TableCell>{mk.nama_matakuliah}</TableCell>
-                                                        <TableCell className="font-medium">{mk.dosen?.nama}</TableCell>
-                                                        <TableCell className="font-medium">{mk.dosen?.nohp}</TableCell>
+                                                        {/* <TableCell className="font-medium">{mk.dosen?.nama}</TableCell>
+                                                        <TableCell className="font-medium">{mk.dosen?.nohp}</TableCell> */}
                                                         <TableCell className="font-medium">{mk.rps}</TableCell>
                                                         <TableCell className="font-medium">{mk.kurikulum?.nama}</TableCell>
                                                     </TableRow>
