@@ -25,7 +25,7 @@ export default function VisiMisi({ prodi }: Props) {
         <GuestLayout>
             {/* Hero Section */}
             <section className="relative overflow-hidden py-20">
-                <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-900 to-blue-700"></div>
+                <div className="absolute inset-0 z-0 bg-gradient-to-r from-green-900 to-green-700"></div>
                 <div
                     className="absolute inset-0 z-0 opacity-20"
                     style={{
@@ -61,11 +61,11 @@ export default function VisiMisi({ prodi }: Props) {
             {/* Breadcrumb */}
             <div className="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
                 <div className="flex items-center text-sm text-gray-500">
-                    <Link href="/" className="transition-colors hover:text-blue-600">
+                    <Link href="/" className="transition-colors hover:text-green-600">
                         Beranda
                     </Link>
                     <span className="mx-2">/</span>
-                    <span className="font-medium text-blue-600">Visi & Misi</span>
+                    <span className="font-medium text-green-600">Visi & Misi</span>
                 </div>
             </div>
 
@@ -84,35 +84,35 @@ export default function VisiMisi({ prodi }: Props) {
 
                         <TabsContent value="visi" className="mt-4">
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                                <Card className="overflow-hidden border-blue-100 shadow-lg">
-                                    <div className="h-2 bg-gradient-to-r from-blue-600 to-blue-800"></div>
+                                <Card className="overflow-hidden border-green-100 shadow-lg">
+                                    <div className="h-2 bg-gradient-to-r from-green-600 to-green-800"></div>
                                     <CardContent className="p-8">
                                         <div className="flex items-start gap-6">
-                                            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-100 sm:flex">
-                                                <Target className="h-8 w-8 text-blue-600" />
+                                            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-100 sm:flex">
+                                                <Target className="h-8 w-8 text-green-600" />
                                             </div>
                                             <div className="space-y-4">
                                                 <h2 className="text-2xl font-bold text-gray-900">Visi Program Studi</h2>
-                                                <div className="prose prose-red max-w-none">
+                                                <div className="prose prose-green max-w-none">
                                                     <p className="text-lg leading-relaxed">{prodi.visi}</p>
                                                 </div>
                                                 <div className="pt-4">
                                                     <h3 className="mb-2 text-lg font-semibold">Makna Visi:</h3>
                                                     <ul className="space-y-3">
                                                         <li className="flex items-start gap-2">
-                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
                                                             <span>Menjadi pusat unggulan dalam pendidikan teknologi informasi</span>
                                                         </li>
                                                         <li className="flex items-start gap-2">
-                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
                                                             <span>Menghasilkan lulusan yang kompetitif di tingkat nasional dan global</span>
                                                         </li>
                                                         <li className="flex items-start gap-2">
-                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
                                                             <span>Berkontribusi pada pengembangan ilmu pengetahuan dan teknologi</span>
                                                         </li>
                                                         <li className="flex items-start gap-2">
-                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
+                                                            <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
                                                             <span>
                                                                 Menerapkan nilai-nilai etika dan profesionalisme dalam bidang teknologi informasi
                                                             </span>
@@ -128,16 +128,16 @@ export default function VisiMisi({ prodi }: Props) {
 
                         <TabsContent value="misi" className="mt-4">
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                                <Card className="overflow-hidden border-blue-100 shadow-lg">
-                                    <div className="h-2 bg-gradient-to-r from-blue-600 to-blue-800"></div>
+                                <Card className="overflow-hidden border-green-100 shadow-lg">
+                                    <div className="h-2 bg-gradient-to-r from-green-600 to-green-800"></div>
                                     <CardContent className="p-8">
                                         <div className="flex items-start gap-6">
-                                            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-100 sm:flex">
-                                                <BookOpen className="h-8 w-8 text-blue-600" />
+                                            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-100 sm:flex">
+                                                <BookOpen className="h-8 w-8 text-green-600" />
                                             </div>
                                             <div className="space-y-4">
                                                 <h2 className="text-2xl font-bold text-gray-900">Misi Program Studi</h2>
-                                                <div className="prose prose-red max-w-none">
+                                                <div className="prose prose-green max-w-none">
                                                     <p className="mb-4 text-lg leading-relaxed">
                                                         Untuk mewujudkan visi tersebut, Program Studi {prodi.nama_prodi} memiliki misi sebagai
                                                         berikut:
@@ -147,12 +147,12 @@ export default function VisiMisi({ prodi }: Props) {
                                                         {misiPoints.map((point, index) => (
                                                             <motion.li
                                                                 key={index}
-                                                                className="flex items-start gap-3 rounded-lg bg-blue-50 p-4"
+                                                                className="flex items-start gap-3 rounded-lg bg-green-50 p-4"
                                                                 initial={{ opacity: 0, x: -20 }}
                                                                 animate={{ opacity: 1, x: 0 }}
                                                                 transition={{ duration: 0.3, delay: 0.1 * index }}
                                                             >
-                                                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                                                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-600 text-sm font-bold text-white">
                                                                     {index + 1}
                                                                 </div>
                                                                 <span className="text-gray-800">{point}</span>

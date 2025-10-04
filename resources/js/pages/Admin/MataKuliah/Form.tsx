@@ -86,7 +86,7 @@ export default function MataKuliahForm({ mataKuliah, prodi, kurikulums, dosens }
                                     </Select>
                                     {errors.kurikulum_id && <p className="text-sm text-red-600">{errors.kurikulum_id}</p>}
                                 </div>
-                                <div className="space-y-2">
+                                {/* <div className="space-y-2">
                                     <Label htmlFor="kurikulum_id">Dosen</Label>
                                     <Select value={data.dosen_id.toString()} onValueChange={(value) => setData('dosen_id', value)}>
                                         <SelectTrigger>
@@ -101,7 +101,7 @@ export default function MataKuliahForm({ mataKuliah, prodi, kurikulums, dosens }
                                         </SelectContent>
                                     </Select>
                                     {errors.dosen_id && <p className="text-sm text-red-600">{errors.dosen_id}</p>}
-                                </div>
+                                </div> */}
                                 <div className="space-y-2">
                                     <Label htmlFor="kode">Kode Mata Kuliah</Label>
                                     <div className="relative">

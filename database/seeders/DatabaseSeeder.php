@@ -23,11 +23,15 @@ class DatabaseSeeder extends Seeder
 
         Prodi::create([
             'nama_prodi' => "Sistem Informasi",
-            'nama_ketua' => "Dr. Surya",
+            'nama_ketua' => "Ketua",
             'foto_ketua' => 'surya.jpg',
             'foto_prodi' => 'si.jpg',
             'visi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt soluta ipsam eveniet tempore quae veniam quasi eligendi suscipit reprehenderit saepe! Nulla at praesentium officiis molestias impedit exercitationem deserunt similique fuga.',
             'misi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt soluta ipsam eveniet tempore quae veniam quasi eligendi suscipit reprehenderit saepe! Nulla at praesentium officiis molestias impedit exercitationem deserunt similique fuga.',
+        ]);
+
+        $this->call([
+            AccountProdiSeeder::class
         ]);
     }
 }

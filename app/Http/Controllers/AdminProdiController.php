@@ -11,6 +11,7 @@ class AdminProdiController extends Controller
 {
     public function edit()
     {
+
         $prodi = ProdiResource::make(Prodi::first());
 
         return Inertia::render("Admin/Prodi/Form", ["prodi" => $prodi]);
@@ -21,6 +22,7 @@ class AdminProdiController extends Controller
         $prodi = Prodi::first();
         $valData = $request->validate([
             'nama_prodi' => ['required'],
+            'quoute' => ['required'],
             'nama_ketua' => ['required'],
             'visi' => ['required'],
             'misi' => ['required'],

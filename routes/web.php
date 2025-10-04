@@ -7,12 +7,16 @@ use App\Http\Controllers\AdminMataKuliahController;
 use App\Http\Controllers\AdminProdiController;
 use App\Http\Controllers\AdminUnduhanController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\ProfilLulusanController;
+use App\Http\Controllers\TujuanController;
 use App\Http\Resources\ProdiResource;
 use App\Models\Alumni;
 use App\Models\Berita;
 use App\Models\Dosen;
 use App\Models\MataKuliah;
 use App\Models\Prodi;
+use App\Models\ProfilLulusan;
+use App\Models\Tujuan;
 use App\Models\Unduhan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,13 +32,21 @@ Route::get('/', function () {
     $dosen = Dosen::all();
     $berita = Berita::all();
     $mataKuliah = MataKuliah::all();
+    $tujuan = Tujuan::all();
+    $profilLulusan = ProfilLulusan::all();
     return Inertia::render('welcome', [
         "prodi" => $prodi,
         "dosen" => $dosen,
         "berita" => $berita,
         "mataKuliah" => $mataKuliah,
+        "tujuan" => $tujuan,
+        "profilLulusan" => $profilLulusan,
     ]);
 })->name('home');
+
+Route::get('/profil-lulusan', [ProfilLulusanController::class, 'index2'])->name('profil-lulusan');
+Route::get('/tujuan', [TujuanController::class, 'index2'])->name('tujuan');
+
 
 Route::get('/dosen', function () {
     $dosen = Dosen::all();
@@ -90,6 +102,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('admin/berita', [AdminBeritaController::class, 'index'])->name('admin.berita.index');
     Route::get('admin/berita/create', [AdminBeritaController::class, 'create'])->name('admin.berita.create');
+    Route::put('admin/berita/approve', [AdminBeritaController::class, 'approve'])->name('admin.berita.approve');
     Route::post('admin/berita', [AdminBeritaController::class, 'store'])->name('admin.berita.store');
 
     Route::get('admin/berita', [AdminBeritaController::class, 'index'])->name('admin.berita.index');
@@ -101,16 +114,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('admin/dosen', [AdminDosenController::class, 'index'])->name('admin.dosen.index');
     Route::get('admin/dosen/create', [AdminDosenController::class, 'create'])->name('admin.dosen.create');
+    Route::put('admin/dosen/approve', [AdminDosenController::class, 'approve'])->name('admin.dosen.approve');
     Route::post('admin/dosen', [AdminDosenController::class, 'store'])->name('admin.dosen.store');
     Route::get('admin/dosen/{dosen}/edit', [AdminDosenController::class, 'edit'])->name('admin.dosen.edit');
     Route::post('admin/dosen/{dosen}', [AdminDosenController::class, 'update'])->name('admin.dosen.update');
     Route::delete('admin/dosen/{dosen}', [AdminDosenController::class, 'destroy'])->name('admin.dosen.destroy');
 
     Route::resource('admin/kurikulums', KurikulumController::class);
+    Route::put('/admin/kurikulum/approve', [KurikulumController::class, 'approve'])
+        ->name('admin.kurikulum.approve');
+
+
+
     Route::resource('admin/unduhan', AdminUnduhanController::class)->names('admin.unduhan');
 
     Route::get('admin/mata-kuliah', [AdminMataKuliahController::class, 'index'])->name('admin.mata-kuliah.index');
     Route::get('admin/mata-kuliah/create', [AdminMataKuliahController::class, 'create'])->name('admin.mata-kuliah.create');
+    Route::put('/admin/mata-kuliah/approve', [AdminMataKuliahController::class, 'approve'])
+        ->name('admin.mata-kuliah.approve');
     Route::post('admin/mata-kuliah', [AdminMataKuliahController::class, 'store'])->name('admin.mata-kuliah.store');
     Route::get('admin/mata-kuliah/{matakuliah}/edit', [AdminMataKuliahController::class, 'edit'])->name('admin.mata-kuliah.edit');
     Route::put('admin/mata-kuliah/{matakuliah}', [AdminMataKuliahController::class, 'update'])->name('admin.mata-kuliah.update');
@@ -122,10 +143,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('admin/alumni', [AdminAlumniController::class, 'index'])->name('admin.alumni.index');
     Route::get('admin/alumni/create', [AdminAlumniController::class, 'create'])->name('admin.alumni.create');
+    Route::put('/admin/alumni/approve', [AdminAlumniController::class, 'approve'])
+        ->name('admin.alumni.approve');
+    Route::get('export-alumni', [AdminAlumniController::class, 'export'])->name('admin.alumni.export');
     Route::post('admin/alumni', [AdminAlumniController::class, 'store'])->name('admin.alumni.store');
     Route::get('admin/alumni/{alumni}/edit', [AdminAlumniController::class, 'edit'])->name('admin.alumni.edit');
     Route::put('admin/alumni/{alumni}', [AdminAlumniController::class, 'update'])->name('admin.alumni.update');
     Route::delete('admin/alumni/{alumni}', [AdminAlumniController::class, 'destroy'])->name('admin.alumni.destroy');
+
+    // Tujuan routes
+    Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+
+        // Tujuan routes
+        Route::resource('tujuan', TujuanController::class);
+
+        // Profil Lulusan routes
+        Route::resource('profil-lulusan', ProfilLulusanController::class);
+    });
 });
 
 require __DIR__ . '/settings.php';

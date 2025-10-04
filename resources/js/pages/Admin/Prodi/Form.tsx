@@ -28,6 +28,7 @@ export default function ProdiForm({ prodi }: any) {
 
     const { data, setData, post, put, processing, errors, reset } = useForm({
         nama_prodi: prodi?.data?.nama_prodi || '',
+        quoute: prodi?.data?.quoute || '',
         nama_ketua: prodi?.data?.nama_ketua || '',
         foto_ketua: null as File | null,
         foto_prodi: null as File | null,
@@ -171,6 +172,20 @@ export default function ProdiForm({ prodi }: any) {
                                                 <User className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
                                             </div>
                                             {errors.nama_ketua && <p className="text-destructive mt-1 text-sm">{errors.nama_ketua}</p>}
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label htmlFor="quoute" className="block text-sm font-medium">
+                                                Kutipan
+                                            </label>
+                                            <Input
+                                                id="quoute"
+                                                value={data.quoute}
+                                                onChange={(e) => setData('quoute', e.target.value)}
+                                                placeholder="Masukkan quoute"
+                                                className={errors.quoute ? 'border-destructive' : ''}
+                                            />
+                                            {errors.quoute && <p className="text-destructive mt-1 text-sm">{errors.quoute}</p>}
                                         </div>
                                     </div>
                                 </motion.div>

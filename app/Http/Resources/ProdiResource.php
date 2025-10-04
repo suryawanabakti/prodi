@@ -17,6 +17,7 @@ class ProdiResource extends JsonResource
         return [
             "id" => $this->id,
             "nama_prodi" => $this->nama_prodi,
+            "quoute" => $this->quoute,
             "nama_ketua" => $this->nama_ketua,
             "foto_ketua" => $this->foto_ketua ? url('storage/' . $this->foto_ketua) : null,
             "foto_prodi" => $this->foto_prodi ? url('storage/' . $this->foto_prodi) : null,
